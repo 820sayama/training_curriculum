@@ -2,7 +2,7 @@ class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
   def index
-    getWeek
+    get_week
     @plan = Plan.new
   end
 
@@ -18,7 +18,7 @@ class CalendarsController < ApplicationController
     params.require(:plan).permit(:date, :plan)
   end
 
-  def getWeek
+  def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
      #wdays[0] = '(日)'
      #wdays[1] = '(月)'
@@ -49,6 +49,8 @@ class CalendarsController < ApplicationController
 
       days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday:  wdays[x - 4]}
       # ハッシュについてご確認　①キーとバリュー　②シンボル型　③ビューで使用するキーはどれかを確認
+
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_pla
       @week_days.push(days)
     end
 
