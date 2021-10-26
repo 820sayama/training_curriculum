@@ -47,7 +47,7 @@ class CalendarsController < ApplicationController
       end
 
 
-      days = { month: (@todays_date + x).month, date: (@todays_date + x).day,:plans => today_plans, :wday => wdays[x - 6]}
+      days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday:  wdays[x - 4]}
       # ハッシュについてご確認　①キーとバリュー　②シンボル型　③ビューで使用するキーはどれかを確認
       @week_days.push(days)
     end
